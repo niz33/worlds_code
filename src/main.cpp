@@ -77,8 +77,8 @@ void opcontrol() {
 
 	Drive drive;
 	while (true) {
-		drive.moveVelocity=controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
-		drive.spinVelocity=controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
+		drive.moveVelocity=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y)/127.0*200.0;
+		drive.spinVelocity=(float)controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X)/127.0*200.0;
 
 		drive.update_drive(127);
 		delay(20);
