@@ -11,6 +11,10 @@ void Odometry::init(){
     r=0;
     b=0;
 
+    lEncoder.reset();
+    rEncoder.reset();
+    bEncoder.reset();
+
     //constants;
     encoderWheelRatio=8.63937979737;
 }
