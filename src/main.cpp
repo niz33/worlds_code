@@ -81,5 +81,6 @@ void opcontrol() {
 		drive.spinVelocity=controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
 
 		drive.update_drive(127);
+		delay(20);
 	}
 }

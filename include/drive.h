@@ -4,7 +4,6 @@ using namespace std;
 using namespace pros;
 
 class Drive{
-
 public:
 
     int moveVelocity;
