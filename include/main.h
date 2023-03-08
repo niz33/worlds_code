@@ -34,10 +34,15 @@
  */
 #define PROS_USE_LITERALS
 
+#include<cmath>
+
 #include "api.h"
 #include "odometry.h"
 #include "global.h"
 #include "drive.h"
+
+Odometry odometry;
+Drive drive;
 
 /**
  * You should add more #includes here

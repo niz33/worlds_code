@@ -27,6 +27,8 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+
+	printf("Sfdfafda");
 }
 
 /**
@@ -34,7 +36,9 @@ void initialize() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-void disabled() {}
+void disabled() {
+
+}
 
 /**
  * Runs after initialize(), and before autonomous when connected to the Field
@@ -75,12 +79,23 @@ void autonomous() {}
  */
 void opcontrol() {
 
-	Drive drive;
+	printf("dsaaasdsa");
 	while (true) {
-		drive.moveVelocity=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y)/127.0*200.0;
-		drive.spinVelocity=(float)controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X)/127.0*200.0;
 
-		drive.update_drive(127);
+		float xDir=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_X);
+		float yDir=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+		xDir/=sqrtf(xDir*xDir+yDir*yDir);
+		if(yDir>0){
+			drive.set_direction(acosf(xDir),false);
+		}
+		else{
+			drive.set_direction(3.14159265358979323846+acosf(xDir),false);
+		}
+		drive.set_move_velocity(sqrtf(xDir*xDir+yDir*yDir)/127.0);
+		drive.set_spin_velocity((float)controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X)/127.0);
+		controller.print(1,1,"okok");
+
+		drive.update_drive();
 		delay(20);
 	}
 }
