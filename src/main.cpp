@@ -96,6 +96,6 @@ void opcontrol() {
 		controller.print(1,1,"okok");
 
 		drive.update_drive();
-		delay(20);
+		delay(20); 
 	}
 }
