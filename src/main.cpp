@@ -1,5 +1,7 @@
 #include "main.h"
 
+Drive drive;
+
 /**
  * A callback function for LLEMU's center button.
  *
@@ -78,10 +80,8 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-
-	printf("dsaaasdsa");
 	while (true) {
-
+		printf("dsaaasdsa");
 		float xDir=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_X);
 		float yDir=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
 		xDir/=sqrtf(xDir*xDir+yDir*yDir);

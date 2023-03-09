@@ -41,8 +41,6 @@
 #include "global.h"
 #include "drive.h"
 
-Odometry odometry;
-Drive drive;
 
 /**
  * You should add more #includes here
