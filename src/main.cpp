@@ -79,11 +79,16 @@ void autonomous() {}
  */
 void opcontrol() {
 
-	printf("dsaaasdsa");
+	Drive drive;
+	drive.odometry.init();
+	
 	while (true) {
 
-		float xDir=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_X);
-		float yDir=(float)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+		drive.odometry.update();
+		printf("dsaaasdsa");
+
+		double xDir=(double)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_X);
+		double yDir=(double)controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
 		xDir/=sqrtf(xDir*xDir+yDir*yDir);
 		if(yDir>0){
 			drive.set_direction(acosf(xDir),false);
@@ -92,7 +97,7 @@ void opcontrol() {
 			drive.set_direction(3.14159265358979323846+acosf(xDir),false);
 		}
 		drive.set_move_velocity(sqrtf(xDir*xDir+yDir*yDir)/127.0);
-		drive.set_spin_velocity((float)controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X)/127.0);
+		drive.set_spin_velocity((double)controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X)/127.0);
 		controller.print(1,1,"okok");
 
 		drive.update_drive();

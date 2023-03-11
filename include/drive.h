@@ -8,15 +8,17 @@ class Drive{
 
     int moveVelocity;
     int spinVelocity;
-    float direction;
-    float directionLocal;
+    double direction;
+    double directionLocal;
 
 public:
 
+    Odometry odometry;
+
     void update_drive();
 
-    void set_direction(float direction, bool useLocal);
-    void set_move_velocity(float velocity);
-    void set_spin_velocity(float velocity);
+    void set_direction(double direction, bool useLocal);
+    void set_move_velocity(double velocity);
+    void set_spin_velocity(double velocity);
 
 };
