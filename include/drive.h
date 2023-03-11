@@ -4,16 +4,12 @@ using namespace std;
 using namespace pros;
 
 class Drive{
-
-
     int moveVelocity;
     int spinVelocity;
     double direction;
     double directionLocal;
 
 public:
-
-    Odometry odometry;
 
     void update_drive();
 

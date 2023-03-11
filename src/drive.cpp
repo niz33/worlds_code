@@ -1,5 +1,6 @@
 #include "main.h"
 
+Odometry odometry;
 void Drive::update_drive(){
     double yDia=sinf(directionLocal-45);
     double xDia=cosf(directionLocal-45);

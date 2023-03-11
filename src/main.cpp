@@ -1,5 +1,7 @@
 #include "main.h"
 
+Drive drive;
+
 /**
  * A callback function for LLEMU's center button.
  *
@@ -79,9 +81,7 @@ void autonomous() {}
  */
 void opcontrol() {
 
-	Drive drive;
-	drive.odometry.init();
-	
+	printf("dsaaasdsa");
 	while (true) {
 
 		drive.odometry.update();
